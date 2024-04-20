@@ -1,13 +1,13 @@
-package com.ms.cuenta.cuenta;
+package com.ms.cliente.cuenta;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CuentaApplicationTests {
+public class CuentaApplicationTests {
 
 	@Test
-	void contextLoads() {
-	}
+	public void contextLoads() {
 
+	}
 }

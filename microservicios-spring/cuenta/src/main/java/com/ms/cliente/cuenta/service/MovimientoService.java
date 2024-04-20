@@ -3,11 +3,13 @@ package com.ms.cliente.cuenta.service;
 import com.ms.cliente.cuenta.dto.MovimientoDTO;
 import com.ms.cliente.cuenta.model.Cuenta;
 import com.ms.cliente.cuenta.model.Movimiento;
+import com.ms.cliente.cuenta.model.exception.MovimientoInvalidoException;
 import com.ms.cliente.cuenta.repository.CuentaRepository;
 import com.ms.cliente.cuenta.repository.MovimientoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -29,19 +31,26 @@ public class MovimientoService {
 
             // Mapear el DTO a la entidad de movimiento
             Movimiento movimiento = mapMovimientoDTOToEntity(movimientoDTO);
-            movimientoRepository.save(movimiento);
+        if(movimiento.getValor().compareTo(movimiento.getSaldo())>0  && movimiento.getTipoMovimiento().equals("R") ){
+            throw new MovimientoInvalidoException("Saldo no disponible recuerde que su saldo es " + movimiento.getSaldo());
+        }
+            if (movimiento.getTipoMovimiento().equals("R")) {
+                movimiento.setSaldo(movimiento.getSaldo().subtract(movimiento.getValor()));
 
+            } else if (movimiento.getTipoMovimiento().equals("C")) {
+                movimiento.setSaldo(movimiento.getValor().add(movimiento.getSaldo()));
+            } else {
+                throw new MovimientoInvalidoException("Solo se permite C para consignacion o R para retiro");
+            }
+
+            movimientoRepository.save(movimiento);
             // Agregar el movimiento a la lista de movimientos de la cuenta
             cuenta.getMovimientos().add(movimiento);
-            System.out.println("---------------/////////////////////////////////////"+cuenta);
             // Guardar la cuenta actualizada en la base de datos
             cuentaRepository.save(cuenta);
-
             // Retornar el movimiento creado
             return mapEntityToMovimientoDTO(movimiento);
         } else {
-            // Manejar el caso en que la cuenta no existe
-            // Por ejemplo, lanzar una excepción o devolver un mensaje de error
             throw new RuntimeException("La cuenta con el ID " + cuentaId + " no existe.");
         }
     }

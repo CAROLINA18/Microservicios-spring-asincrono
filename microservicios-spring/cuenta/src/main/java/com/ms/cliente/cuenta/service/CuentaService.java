@@ -67,6 +67,7 @@ public class CuentaService {
         cuenta.setTipoCuenta(cuentaDTO.getTipoCuenta());
         cuenta.setSaldoInicial(cuentaDTO.getSaldoInicial());
         cuenta.setEstado(cuentaDTO.getEstado());
+        cuenta.setClienteId(cuentaDTO.getClienteId());
         List<Movimiento> movimientos = cuentaDTO.getMovimientos().stream()
                 .map(movimientoDTO -> movimientoRepository.findById(movimientoDTO.getId()).orElse(null))
                 .collect(Collectors.toList());
@@ -82,7 +83,7 @@ public class CuentaService {
         cuentaDTO.setTipoCuenta(cuenta.getTipoCuenta());
         cuentaDTO.setSaldoInicial(cuenta.getSaldoInicial());
         cuentaDTO.setEstado(cuenta.getEstado());
-
+        cuentaDTO.setClienteId(cuenta.getClienteId());
         return cuentaDTO;
     }
 }

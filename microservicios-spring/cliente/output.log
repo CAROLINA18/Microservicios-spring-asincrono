@@ -1,0 +1,50 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< com.ms.cliente:cliente >-----------------------
+[INFO] Building cliente 0.0.1-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.3.2:clean (default-clean) @ cliente ---
+[INFO] Deleting C:\Users\catal\OneDrive\Documentos\Proyecto-ms-sofka\microservicios-spring\cliente\target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.3.1:resources (default-resources) @ cliente ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.11.0:compile (default-compile) @ cliente ---
+[INFO] Changes detected - recompiling the module! :source
+[INFO] Compiling 11 source files with javac [debug release 11] to target\classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/model/Cliente.java:[14,1] Generating equals/hashCode implementation but without a call to superclass, even though this class does not extend java.lang.Object. If this is intentional, add '@EqualsAndHashCode(callSuper=false)' to your type.
+[WARNING] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/dto/ClienteDTO.java:[6,1] Generating equals/hashCode implementation but without a call to superclass, even though this class does not extend java.lang.Object. If this is intentional, add '@EqualsAndHashCode(callSuper=false)' to your type.
+[INFO] 2 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/service/ClienteCreadoListener.java:[3,37] package com.ms.cliente.cuenta.service does not exist
+[ERROR] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/service/ClienteCreadoListener.java:[12,13] cannot find symbol
+  symbol:   class CuentaService
+  location: class com.ms.cliente.cliente.service.ClienteCreadoListener
+[INFO] 2 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.852 s
+[INFO] Finished at: 2024-04-20T17:22:02-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.11.0:compile (default-compile) on project cliente: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/service/ClienteCreadoListener.java:[3,37] package com.ms.cliente.cuenta.service does not exist
+[ERROR] /C:/Users/catal/OneDrive/Documentos/Proyecto-ms-sofka/microservicios-spring/cliente/src/main/java/com/ms/cliente/cliente/service/ClienteCreadoListener.java:[12,13] cannot find symbol
+[ERROR]   symbol:   class CuentaService
+[ERROR]   location: class com.ms.cliente.cliente.service.ClienteCreadoListener
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
